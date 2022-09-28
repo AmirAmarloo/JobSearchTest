@@ -1,0 +1,8 @@
+CREATE DEFINER=`root`@`localhost` PROCEDURE `searchLocation` (IN `locationIN` VARCHAR(50))   SELECT * FROM job
+WHERE job.location LIKE CONCAT('%', locationIN , '%');
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `searchtJOB` (IN `titleIN` VARCHAR(50))   SELECT * FROM job
+WHERE job.title LIKE CONCAT('%', titleIN , '%');
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `validAPI` (IN `uuidIN` VARCHAR(50), OUT `sumOUT` INT(1))   SELECT COUNT(application.uid) into sumOUT FROM application
+where application.uid = uuidIN;
